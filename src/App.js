@@ -4,29 +4,33 @@ const Father = styled.div`
   display: flex;
 `
 
-const BoxOne = styled.div`
-  background-color: teal;
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
   width: 100px;
   height: 100px;
 `
 
-const BoxTwo = styled.div`
-  background-color: tomato;
-  width: 100px;
-  height: 100px;
+const Circle = styled(Box)`
+  border-radius: 50px;
 `
 
-const Text = styled.h1`
-  color: white;
+const Input = styled.input.attrs({required: true, minLength: 10})`
+  background-color: aqua;
+`;
+
+const Btn = styled.button`
+  border: 0;
+  border-radius: 15px;
 `
 
 function App() {
     return (
-        <Father>
-            <BoxOne>
-                <Text>Hello</Text>
-            </BoxOne>
-            <BoxTwo/>
+        <Father as="header">
+            <Box bgColor="teal"/>
+            <Circle bgColor="tomato"/>
+            <Btn>Log in</Btn>
+            <Btn as="a">Log in</Btn>
+            <Input/>
         </Father>
     )
 }
