@@ -1,7 +1,9 @@
 import styled, {keyframes} from "styled-components";
 
 const Wrapper = styled.div`
-    display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const rotationAnimation = keyframes`
@@ -18,6 +20,10 @@ const rotationAnimation = keyframes`
   }
 `
 
+const Emoji = styled.span`
+  font-size: 36px;
+`
+
 const Box = styled.div`
   height: 100px;
   width: 100px;
@@ -25,16 +31,18 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation:${rotationAnimation} 1s linear infinite;
-  span {
-    font-size: 36px;
-    // & <= 자기 자신 (원래 css 라면 span:hover 형태)
-    &:hover {
+  animation: ${rotationAnimation} 1s linear infinite;
+  ${Emoji}: hover {
       font-size: 150px;
     }
-    &:active {
-      opacity: 0;
-    }
+  // ${Emoji} {
+  //   &:hover {
+  //     font-size: 150px;
+  //   }
+  //
+  //   &:active {
+  //     opacity: 0;
+  //   }
   }
 `
 
@@ -42,7 +50,7 @@ function App() {
     return (
         <Wrapper>
             <Box>
-                <span>🚀</span>
+                <Emoji>🚀</Emoji>
             </Box>
         </Wrapper>
     )
