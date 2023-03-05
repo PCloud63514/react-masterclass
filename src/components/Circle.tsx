@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import {useState} from "react";
 
 interface CircleProps {
     bgColor: string;
     borderColor?: string;
-    text?: string
 }
 
 interface ContainerProps {
@@ -20,10 +20,11 @@ const Container = styled.div<ContainerProps>`
 `
 
 
-function Circle({bgColor, borderColor, text = "default text"}: CircleProps) {
+function Circle({bgColor, borderColor}: CircleProps) {
+    const [counter, setCounter] = useState(0);
     return (
         <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
-            {text}
+            {counter}
         </Container>
     )
 }
